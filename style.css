@@ -1,5 +1,39 @@
+
+body {
+    background-color: rgb(6, 0, 20);
+}
+
 div {
-    height: 50%;
-    margin: 0;
-    background-color: red;
+    display: flex;
+}
+#buttoncontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#scorediv {
+    display: flex;
+}
+#computerscore-container{
+    width: 50%;
+}
+
+#playerscore-container {
+    width: 50%;
+}
+
+.image {
+    height: 150px;
+    width: 150px;
+    border: solid 5px;
+    border-color: aquamarine;
+    border-radius: 100%;
+}
+
+
+.image:hover {
+    border: solid 10px;
+    border-radius: 100%;
+    border-color: aqua;
 }

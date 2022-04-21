@@ -1,3 +1,5 @@
+let playerscore = 0;
+let computerscore = 0;
 
 function computerPlay(){
     let computer_decision = Math.floor((Math.random() * 3) + 1);
@@ -12,101 +14,44 @@ function computerPlay(){
     }
 }
 
-function playGame(player,computer,playerscore,computerscore){
+function playGame(player,computer,){
     player = player.toLowerCase();
     computer = computer.toLowerCase();
 
     console.log("This is the decision of the AI:" + computer);
     console.log(playerscore);
     const resultcontainer = document.querySelector("#resultdiv");
-    const scorecontainer = document.querySelector("#scorediv");
-    
+    const computerscorecontainer = document.querySelector("#computerscore-container");
+    const playerscorecontainer = document.querySelector("#playerscore-container");
     //computer wins scenario
-    if(player=="rock" && computer=="paper"){
+    if((player=="rock" && computer=="paper") || (player=="paper" && computer=="scissors") || (player=="scissors" && computer=="rock")){
         console.log("Computer wins, "+ computer + " beats " + player);
         resultcontainer.style.cssText = "background-color: red;";
         computerscore = computerscore + 1;
-        scorecontainer.textContent = computerscore.toString();
+        computerscorecontainer.textContent = computerscore.toString();
         console.log("Computer score:" + computerscore.toString());
         console.log("Player score:" + playerscore.toString());
     
         return 1;
     }
-    else if(player=="paper" && computer=="scissors"){
-        console.log("Computer wins, "+ computer + " beats " + player);   
-        resultcontainer.style.cssText = "background-color: red;";
-        computerscore = computerscore + 1;
-        scorecontainer.textContent = toString(computerscore);
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 1;
-    }
-    else if(player=="scissors" && computer=="rock"){
-        console.log("Computer wins, "+ computer + " beats " + player);   
-        resultcontainer.style.cssText = "background-color: red;";
-        computerscore = computerscore + 1;
-        scorecontainer.textContent = toString(computerscore);
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 1;
-    }
 
     //player wins scenario
-    else if(player=="rock" && computer=="scissors"){
+    else if((player=="rock" && computer=="scissors") || (player=="paper" && computer=="rock") || (player=="scissors" && computer=="paper")){
         console.log("Player wins, "+ player + " beats " + computer);   
         resultcontainer.style.cssText = "background-color: green;";
         playerscore = playerscore + 1;
-        scorecontainer.textContent = toString(playerscore);
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
+        playerscorecontainer.textContent = playerscore.toString();
+        console.log("Computer score:" + computerscore.toString());
+        console.log("Player score:" + playerscore.toString());
     
         return 2;
     }
-    else if(player=="paper" && computer=="rock"){
-        console.log("Player wins, "+ player + " beats " + computer);   
-        resultcontainer.style.cssText = "background-color: green;";
-        playerscore = playerscore + 1;
-        scorecontainer.textContent = toString(playerscore);
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 2;
-    }
-    else if(player=="scissors" && computer=="paper"){
-        console.log("Player wins, "+ player + " beats " + computer);   
-        resultcontainer.style.cssText = "background-color: green;";
-        playerscore = playerscore + 1;
-        scorecontainer.textContent = toString(playerscore);
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 2;
-    }
-
     //nobody wins
-    else if(player=="rock" && computer=="rock"){
+    else if((player=="rock" && computer=="rock") || (player=="paper" && computer=="paper") || (player=="scissors" && computer=="scissors")){
         console.log("Nobody wins. " + computer + " and " + player);    
         resultcontainer.style.cssText = "background-color: pink;";
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 3;
-    }
-    else if(player=="paper" && computer=="paper"){
-        console.log("Nobody wins. " + computer + " and " + player);        
-        resultcontainer.style.cssText = "background-color: pink;";
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
-    
-        return 3;
-    }
-    else if(player=="scissors" && computer=="scissors"){
-        console.log("Nobody wins. " + computer + " and " + player);        
-        resultcontainer.style.cssText = "background-color: pink;";
-        console.log("Computer score:" + toString(computerscore));
-        console.log("Player score:" + toString(playerscore));
+        console.log("Computer score:" + computerscore.toString());
+        console.log("Player score:" + playerscore.toString());
     
         return 3;
     }
@@ -126,45 +71,26 @@ function playGame(player,computer,playerscore,computerscore){
 }
 
 function game(){
-    let i;
-    playerScore = 0;
-    computerScore = 0;
-    for(i=0;i<5;i++){
-        let playerdecision = String(prompt("Enter your decision:"));
-        let winner = playGame(playerdecision,computerPlay());
-        if(winner == 1){
-            computerScore++;
-        }
-        else if(winner == 2){
-            playerScore++;
-        }
-    }
-    if(playerScore>computerScore){
-        console.log("Player wins!!!");
-    }
-    else{
-        console.log("Computer wins!!");
-    }
+
+    const rockchoice = document.querySelector('#rock');
+    const paperchoice = document.querySelector('#paper');
+    const scissorchoice = document.querySelector('#scissor');
+
+    console.log("hello");
+    console.log(rockchoice);
+    console.log(paperchoice);
+    console.log(scissorchoice);
+    console.log("player score is" + playerscore.toString());
+    console.log("computer score is" + computerscore.toString());
+
+
+    rockchoice.addEventListener('click',()=> {playGame("rock",computerPlay())});
+    paperchoice.addEventListener('click',() => {playGame("paper",computerPlay())});
+    scissorchoice.addEventListener('click', () => {playGame("scissors",computerPlay())});
+
+
 }
 
-//game();
-
-const rockchoice = document.querySelector('#rock');
-const paperchoice = document.querySelector('#paper');
-const scissorchoice = document.querySelector('#scissor');
+game();
 
 
-var playerscore = 0;
-var computerscore = 0;
-
-
-
-console.log("hello");
-console.log(rockchoice);
-console.log(paperchoice);
-console.log(scissorchoice);
-console.log("player score is" + playerscore.toString());
-console.log("computer score is" + computerscore.toString());
-rockchoice.addEventListener('click',()=> {playGame("rock",computerPlay(),playerscore,computerscore)});
-paperchoice.addEventListener('click',() => {playGame("paper",computerPlay(),playerscore,computerscore)});
-scissorchoice.addEventListener('click', () => {playGame("scissors",computerPlay(),playerscore,computerscore)});
