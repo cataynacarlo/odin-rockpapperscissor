@@ -26,7 +26,8 @@ function playGame(player,computer,){
     //computer wins scenario
     if((player=="rock" && computer=="paper") || (player=="paper" && computer=="scissors") || (player=="scissors" && computer=="rock")){
         console.log("Computer wins, "+ computer + " beats " + player);
-        resultcontainer.style.cssText = "background-color: red;";
+        resultcontainer.style.cssText = "background-color: rgb(255, 31, 1);";
+        resultcontainer.textContent = "Computer wins this round!";
         computerscore = computerscore + 1;
         computerscorecontainer.textContent = computerscore.toString();
         console.log("Computer score:" + computerscore.toString());
@@ -38,7 +39,8 @@ function playGame(player,computer,){
     //player wins scenario
     else if((player=="rock" && computer=="scissors") || (player=="paper" && computer=="rock") || (player=="scissors" && computer=="paper")){
         console.log("Player wins, "+ player + " beats " + computer);   
-        resultcontainer.style.cssText = "background-color: green;";
+        resultcontainer.style.cssText = "background-color: rgb(45, 247, 18);";
+        resultcontainer.textContent = "You win this round!";
         playerscore = playerscore + 1;
         playerscorecontainer.textContent = playerscore.toString();
         console.log("Computer score:" + computerscore.toString());
@@ -49,7 +51,8 @@ function playGame(player,computer,){
     //nobody wins
     else if((player=="rock" && computer=="rock") || (player=="paper" && computer=="paper") || (player=="scissors" && computer=="scissors")){
         console.log("Nobody wins. " + computer + " and " + player);    
-        resultcontainer.style.cssText = "background-color: pink;";
+        resultcontainer.style.cssText = "background-color: rgb(41, 5, 126);";
+        resultcontainer.textContent = "Nobody won!";
         console.log("Computer score:" + computerscore.toString());
         console.log("Player score:" + playerscore.toString());
     

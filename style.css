@@ -3,24 +3,76 @@ body {
     background-color: rgb(6, 0, 20);
 }
 
-div {
-    display: flex;
-}
 #buttoncontainer{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+#resultdiv{
+    height: 100px;
+    width: 900px;
+    padding: 2%;
+    margin: 30px;
+    background-color: rgb(41, 5, 126);
+    border: solid 1px;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    font-size: 80px;
+}
+
 #scorediv {
+    margin-bottom: 3%;
     display: flex;
+    justify-content: space-evenly;
 }
 #computerscore-container{
-    width: 50%;
+    width: 250px;
+    height: 100px;
+    background-color: greenyellow;
+    text-align: center;
+    justify-content: center;
+    font-size: 80px;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+#computer-name-div{
+    width: 250px;
+    height: 50px;
+    background-color: greenyellow;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+    border: solid 1px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #playerscore-container {
-    width: 50%;
+    width: 250px;
+    height: 100px;
+    background-color: aqua;
+    text-align: center;
+    justify-content: center;
+    font-size: 80px;
+    border: solid 1px;
+    border-radius: 10px;
+
+}
+
+#player-name-div {
+    width: 250px;
+    height: 50px;
+    background-color: aqua;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+    border: solid 1px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
 }
 
 .image {
@@ -36,4 +88,10 @@ div {
     border: solid 10px;
     border-radius: 100%;
     border-color: aqua;
+}
+
+
+#player-div,#computer-div{
+    display: flex;
+    flex-direction: column;
 }
