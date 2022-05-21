@@ -33,7 +33,7 @@ function playGame(player,computer,){
         console.log("Computer score:" + computerscore.toString());
         console.log("Player score:" + playerscore.toString());
     
-        return 1;
+        //return 1;
     }
 
     //player wins scenario
@@ -46,7 +46,7 @@ function playGame(player,computer,){
         console.log("Computer score:" + computerscore.toString());
         console.log("Player score:" + playerscore.toString());
     
-        return 2;
+        //return 2;
     }
     //nobody wins
     else if((player=="rock" && computer=="rock") || (player=="paper" && computer=="paper") || (player=="scissors" && computer=="scissors")){
@@ -56,7 +56,7 @@ function playGame(player,computer,){
         console.log("Computer score:" + computerscore.toString());
         console.log("Player score:" + playerscore.toString());
     
-        return 3;
+        //return 3;
     }
     //error
     else{
@@ -66,12 +66,23 @@ function playGame(player,computer,){
     console.log("Computer score:" + computerscore.toString());
     console.log("Player score:" + playerscore.toString());
     if(playerscore>=5){
-        scorecontainer.textContent = "Player wins! Congratulations";
+        resultcontainer.textContent = "Player wins! ";
+        playerscore = 0;
+        computerscore = 0;
     }
     else if(computerscore>=5){
-        scorecontainer.textContent = "Computer wins! AI will take over us!!";
+        resultcontainer.textContent = "Computer wins the game. :(";
+        playerscore = 0;
+        computerscore = 0;
     }
+
+    playerscorecontainer.textContent = playerscore.toString();
+    computerscorecontainer.textContent = computerscore.toString();
+
+    return
 }
+
+
 
 function game(){
 
