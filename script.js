@@ -23,6 +23,39 @@ function playGame(player,computer,){
     const resultcontainer = document.querySelector("#resultdiv");
     const computerscorecontainer = document.querySelector("#computerscore-container");
     const playerscorecontainer = document.querySelector("#playerscore-container");
+    const playerimage = document.querySelector("#player-image");
+    const computerimage = document.querySelector("#computer-image");
+
+
+
+    if(player=="rock"){
+        playerimage.src = "./images/rockimage.png"
+        playerimage.style.transform = "rotate(360deg)";
+    }
+    else if(player=="paper"){
+        playerimage.src = "./images/paperimage.png";
+        playerimage.style.transform = "rotate(360deg)";    
+    }
+    else if(player=="scissors"){
+        playerimage.src = "./images/scissorimage.png";
+        playerimage.style.transform = "rotate(360deg)";  
+    }
+
+    if(computer=="rock"){
+        computerimage.src = "./images/rockimage.png";
+        computerimage.style.transform = "rotate(360deg)";
+    }
+    else if(computer=="paper"){
+        computerimage.src = "./images/paperimage.png"    
+        computerimage.style.transform = "rotate(360deg)";
+    }
+    else if(computer=="scissors"){
+        computerimage.src = "./images/scissorimage.png";
+        computerimage.style.transform = "rotate(360deg)";  
+    }
+
+    playerscorecontainer.textContent = playerscore.toString();
+    computerscorecontainer.textContent = computerscore.toString();
     //computer wins scenario
     if((player=="rock" && computer=="paper") || (player=="paper" && computer=="scissors") || (player=="scissors" && computer=="rock")){
         console.log("Computer wins, "+ computer + " beats " + player);
@@ -65,8 +98,9 @@ function playGame(player,computer,){
 
     console.log("Computer score:" + computerscore.toString());
     console.log("Player score:" + playerscore.toString());
+
     if(playerscore>=5){
-        resultcontainer.textContent = "Player wins! ";
+        resultcontainer.textContent = "Player wins the game! ";
         playerscore = 0;
         computerscore = 0;
     }
@@ -76,10 +110,6 @@ function playGame(player,computer,){
         computerscore = 0;
     }
 
-    playerscorecontainer.textContent = playerscore.toString();
-    computerscorecontainer.textContent = computerscore.toString();
-
-    return
 }
 
 
